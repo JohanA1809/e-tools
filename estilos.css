@@ -1,0 +1,80 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    background:#13005A;
+   
+}
+header {
+	width:100%; /* Establecemos que el header abarque el 100% del documento */
+	overflow:hidden; /* Eliminamos errores de float */
+	background:#03C988;
+	margin-bottom:10px;
+    height:150px;
+    
+}
+
+.wrapper {
+
+	margin-left:20px; /*Centramos los elementos */
+	overflow:hidden; /* Eliminamos errores de float */
+}
+
+header .logo {
+	color:#f2f2f2;
+	font-size:40px;
+	line-height:200px;
+	float:left;
+	font-weight:bold;
+  
+  
+}
+
+header nav {
+    margin: 0 0 50px 500px; 
+	line-height:200px;
+}
+
+header nav a {
+	display:inline-block;
+	color:#fff;
+	text-decoration:none;
+	padding:10px 20px;
+	line-height:normal;
+	font-size:18px;
+	font-weight:bold;
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+}
+
+header nav a:hover {
+	background:#f56f3a;
+	border-radius:10px;
+}
+@media screen and (max-width: 950px) {
+	header .logo,
+	header nav {
+		width:100%;
+		text-align:center; /*Centramos el menu y el logotipo*/
+		line-height:100px;
+	}
+
+}
+main {
+}
+section {
+	border-radius: 5px;
+    float:left;
+padding-left:10px;
+width:71%;
+    background-color:#1C82AD;
+}
+aside {
+    width:8%;
+    height:500px;
+    background-color:white;
+    border-color: black;
+    border-radius:5px;
+    float:right;
+    padding-right:20%;
+}

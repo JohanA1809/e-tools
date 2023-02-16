@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergyTools</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* CSS styles go here */
+        .calculator {
+        text-align: center;
+        padding: 20px;
+        background-color: lightblue;
+      }
+      
+      input[type="number"] {
+        padding: 5px 10px;
+        font-size: 18px;
+        border-radius: 5px;
+        border: 1px solid gray;
+      }
+      
+      button[type="button"] {
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        background-color: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      </style>
+</head>
+<body>
+    <header>
+		<div class="wrapper">
+			<div class="logo">EnergyTools
+            </div>
+			
+			<nav>
+        <a href="index.html">Inicio</a>
+				<a href="#">Dimensionamiento</a>
+				<a href="costos.html">Calculadora de costos</a>
+				<a href="contacto.html">Contacto</a>
+			</nav>
+		</div>
+	</header>
+    <main>
+        <section>
+<h1>Dimensionamiento aproximado para tu hogar</h1>
+<p>Con ayuda de datos oficiales del IDEAM, EnergyTools presenta una calculadora para estimar la potencia instaladas necesaria en tu hogar.
+    Si deseas realizar 
+</p>
+ <div class="calculator">
+   <form id="calculator-form">
+        <label for="consumption">Consumo mensual de energía eléctrica (kWh):</label>
+        <input type="text" id="consumption" name="consumption" required>
+        <button type="button" onclick="calculateCost()">Calcular </button>
+      </form><p></p>
+      <div id="result"></div></div>
+      <script>
+        // JavaScript code goes here
+        const form = document.querySelector('#calculator-form');
+        const result = document.querySelector('#result');
+    
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          const vacio="";
+    
+          // calculate required solar panel power
+          const consumption = form.elements.consumption.value;
+          const hsp= 4;
+          const PR= 0.8; 
+          const diasmes=30;
+          const potencia = (consumption / diasmes)/(hsp*PR);
+          const requiredPower= potencia.toFixed(2);
+          const panelesrestar= requiredPower/0.210;
+          const restarSolar=panelesrestar.toFixed(0)
+          const panelesjinko= requiredPower/0.450;
+          const jinko=panelesjinko.toFixed(0)
+    
+          result.textContent = `Potencia instalada aproximada requerida: ${requiredPower} kW.
+          Lo que es igual a instalar aproximadamente  ${restarSolar} paneles de 210W de la marca RestarSolar o ${jinko} paneles de 450W de la marca JinkoSolar `;
+     
+        });
+      </script>
+</p> </section>
+    </main>
+    <aside>prueba</aside>
+</body>

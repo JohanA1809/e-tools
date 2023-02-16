@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergyTools</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+      .calculator {
+        text-align: center;
+        padding: 20px;
+        background-color: lightblue;
+      }
+      
+      input[type="number"] {
+        padding: 5px 10px;
+        font-size: 18px;
+        border-radius: 5px;
+        border: 1px solid gray;
+      }
+      
+      button[type="button"] {
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        background-color: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      </style>
+</head>
+<body>
+    <header>
+		<div class="wrapper">
+			<div class="logo">EnergyTools
+            </div>
+			
+			<nav>
+				<a href="index.html">Inicio</a>
+				<a href="dimensionamiento.html">Dimensionamiento</a>
+				<a href="#">Calculadora de costos</a>
+				<a href="contacto.html">Contacto</a>
+			</nav>
+		</div>
+	</header>
+    <main>
+        <section>
+<h1>Dimensionamiento aproximado para tu hogar</h1>
+<p>Para calcular el costo aproximado del proyecto que estés interesado en iniciar con paneles solares, digite la potencia de los paneles solares, la potencia de cada uno y el costo aproximado por cada kW instalado en energía solar. Si no tiene este costo por kWh, se le recomienda saltarse esta entrada, 
+  ya que contamos con un precio estimado promedio según estudios hechos a proyectos realizados en el país.
+</p>
+<div class="calculator">
+
+  <form>
+    <label for="wattage">Potencia de los paneles solares:</label>
+    <input type="number" id="wattage" name="wattage">
+    <br><br>
+    <label for="area">Cantidad de paneles:</label>
+    <input type="number" id="area" name="area">
+    <br><br>
+    <label for="costPerWatt">Costo por watt:</label>
+    <input type="number" value="4000000" id="costPerWatt" name="costPerWatt">
+    <br><br>
+    <button type="button" onclick="calculateCost()">Calcular Costo</button>
+  </form>
+  <br><br>
+  <h2>Costo Total: $<span id="totalCost">0</span></h2>
+</div>
+      <script>
+      function calculateCost() {
+  var wattage = document.getElementById("wattage").value;
+  var area = document.getElementById("area").value;
+  var costPerWatt = document.getElementById("costPerWatt").value;
+  
+  var totalWattage = wattage * area;
+  var totalCost = totalWattage * costPerWatt;
+  
+  document.getElementById("totalCost").innerHTML = totalCost;
+}
+      </script>
+</p> </section>
+    </main>
+    <aside>prueba</aside>
+</body>
