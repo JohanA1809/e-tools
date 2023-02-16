@@ -51,13 +51,14 @@
     <main>
         <section>
 <h1>Dimensionamiento aproximado para tu hogar</h1>
-<p>Con ayuda de datos oficiales del IDEAM, EnergyTools presenta una calculadora para estimar la potencia instaladas necesaria en tu hogar.
-    Si deseas realizar 
+<p>Digite el consumo del mes anterior y el mes actual para sumarlos e iniciar el dimensionamiento 
 </p>
  <div class="calculator">
    <form id="calculator-form">
-        <label for="consumption">Consumo mensual de energía eléctrica (kWh):</label>
+        <label for="consumption">Consumo del mes anterior de energía eléctrica (kWh):</label>
         <input type="text" id="consumption" name="consumption" required>
+	    <label for="consumption">Consumo del mes actual de energía eléctrica (kWh):</label>
+        <input type="text" id="mesn" name="mesn" required>
         <button type="button" onclick="calculateCost()">Calcular </button>
       </form><p></p>
       <div id="result"></div></div>
@@ -72,6 +73,7 @@
     
           // calculate required solar panel power
           const consumption = form.elements.consumption.value;
+		 const mesn = form.elements.mesn.value;
           const hsp= 4;
           const PR= 0.8; 
           const diasmes=30;
@@ -82,8 +84,8 @@
           const panelesjinko= requiredPower/0.450;
           const jinko=panelesjinko.toFixed(0)
     
-          result.textContent = `Potencia instalada aproximada requerida: ${requiredPower} kW.
-          Lo que es igual a instalar aproximadamente  ${restarSolar} paneles de 210W de la marca RestarSolar o ${jinko} paneles de 450W de la marca JinkoSolar `;
+          result.textContent = `El resultado de las sumas de las dos últimas facturas de energía es: ${consumption}${mesn} kW.
+          `;
      
         });
       </script>
